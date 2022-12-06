@@ -38,7 +38,7 @@ function App() {
       );
     } else {
       // Narrowed down to a single country
-      return <Country i={i} filteredCountry={filteredCountry} />;
+      return <Country key={i} filteredCountry={filteredCountry} />;
     }
   });
 

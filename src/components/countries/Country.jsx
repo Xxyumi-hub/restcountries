@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Country = ({ filteredCountry, i }) => {
+const Country = ({ filteredCountry }) => {
   return (
-    <div key={i}>
+    <div>
       <h1>{filteredCountry.name.common}</h1>
       <p>capital {filteredCountry.capital[0]}</p>
       <p>area {filteredCountry.area}</p>
