@@ -20,6 +20,7 @@ function App() {
     }
   }, [countries, singleCountry]);
 
+  // reset singleCountry when searchTerm changes
   useEffect(() => {
     setSingleCountry([]);
   }, [searchTerm]);
