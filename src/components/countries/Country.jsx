@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const Country = ({filteredCountry, i}) => {
+const Country = ({ filteredCountry, i }) => {
   return (
     <div key={i}>
       <h1>{filteredCountry.name.common}</h1>
@@ -10,7 +10,7 @@ const Country = ({filteredCountry, i}) => {
       {Object.values(filteredCountry.languages).map((language) => {
         return <li key={i}>{language}</li>;
       })}
-      <img src={filteredCountry.flags[0]} alt="" />
+      <img src={filteredCountry.flags[0]} alt='' />
     </div>
   );
 };
