@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
-import './App.css';
 import Country from './components/countries/Country';
 import CountryName from './components/countries/CountryName';
+import './App.css';
 
 function App() {
   const [countries, setCountries] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [showCountryDetails, setShowCountryDetails] = useState(false);
   const [singleCountry, setSingleCountry] = useState([]);
 
   useEffect(() => {
@@ -27,12 +26,6 @@ function App() {
         country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
       )
     : singleCountry;
-
-  const testButton = () => {
-    for (let i = 0; i < filteredCountries.length - 1; i++) {
-      filteredCountries.pop();
-    }
-  };
 
   const countriesToDisplay = filteredCountries.map((filteredCountry, i) => {
     if (filteredCountries.length > 1) {
