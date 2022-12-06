@@ -31,7 +31,7 @@ function App() {
     if (filteredCountries.length > 1) {
       return (
         <CountryName
-          i={i}
+          key={i}
           filteredCountry={filteredCountry}
           setSingleCountry={setSingleCountry}
         />
