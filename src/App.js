@@ -26,22 +26,20 @@ function App() {
   }, [searchTerm]);
 
   // Filter on countries
-  const filteredCountries = !singleCountry.length
-    ? countries.filter((country) =>
-        country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-    : singleCountry;
+  const filteredCountries = countries.filter((country) =>
+    country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const dataToDisplay = !searchTerm ? null : filteredCountries.length > 10 ? (
     'Too many results'
-  ) : filteredCountries.length > 1 ? (
+  ) : singleCountry.length ? (
+    <Country filteredCountry={singleCountry[0]} />
+  ) : (
+    // Narrowed down to a single country
     <CountryNameList
       filteredCountries={filteredCountries}
       setSingleCountry={setSingleCountry}
     />
-  ) : (
-    // Narrowed down to a single country
-    <Country filteredCountry={filteredCountries[0]} />
   );
 
   return (
