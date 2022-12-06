@@ -32,8 +32,7 @@ function App() {
       )
     : singleCountry;
 
-  const countriesToDisplay = !searchTerm ? null : filteredCountries.length >
-    10 ? (
+  const dataToDisplay = !searchTerm ? null : filteredCountries.length > 10 ? (
     'Too many results'
   ) : filteredCountries.length > 1 ? (
     <CountryNameList
@@ -51,7 +50,7 @@ function App() {
     <div>
       <label>find countries</label>
       <input onChange={(e) => setSearchTerm(e.target.value)}></input>
-      <div>{countriesToDisplay}</div>
+      <div>{dataToDisplay}</div>
     </div>
   );
 }
