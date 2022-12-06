@@ -16,7 +16,6 @@ function App() {
         )
         .then((data) => {
           setCountries(data);
-          setfilteredCountries(data);
         });
     }
   }, [countries]);
@@ -43,6 +42,8 @@ function App() {
   ) : (
     'No results'
   );
+
+  console.log({ filteredCountries });
 
   return (
     <div>
