@@ -20,6 +20,10 @@ function App() {
     }
   }, [countries, singleCountry]);
 
+  useEffect(() => {
+    setSingleCountry([]);
+  }, [searchTerm]);
+
   // Filter on countries
   const filteredCountries = !singleCountry.length
     ? countries.filter((country) =>
