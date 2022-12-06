@@ -32,6 +32,8 @@ function App() {
       )
     : singleCountry;
 
+  console.log({ filteredCountries });
+
   // const countriesToDisplay = filteredCountries.map((filteredCountry, i) => {
   //   if (filteredCountries.length > 1) {
   //     return (
@@ -47,30 +49,34 @@ function App() {
   //   }
   // });
 
-  const countriesToDisplay =
-    filteredCountries.length > 1
-      ? filteredCountries.map((filteredCountry, i) => (
-          <CountryName
-            key={i}
-            filteredCountry={filteredCountry}
-            setSingleCountry={setSingleCountry}
-          />
-        ))
-      : // Narrowed down to a single country
-        filteredCountries.map((filteredCountry, i) => (
-          <Country key={i} filteredCountry={filteredCountry} />
-        ));
+  const countriesToDisplay = !searchTerm
+    ? null
+    : filteredCountries.length > 10
+    ? 'Too many results'
+    : filteredCountries.length > 1
+    ? filteredCountries.map((filteredCountry, i) => (
+        <CountryName
+          key={i}
+          filteredCountry={filteredCountry}
+          setSingleCountry={setSingleCountry}
+        />
+      ))
+    : // Narrowed down to a single country
+      filteredCountries.map((filteredCountry, i) => (
+        <Country key={i} filteredCountry={filteredCountry} />
+      ));
 
   return (
     <div>
       <label>find countries</label>
       <input onChange={(e) => setSearchTerm(e.target.value)}></input>
       <ul>
-        {searchTerm.length === 0
+        {countriesToDisplay}
+        {/* {searchTerm.length === 0
           ? null
           : filteredCountries.length > 10
           ? 'Too many results'
-          : countriesToDisplay}
+          : countriesToDisplay} */}
       </ul>
     </div>
   );
