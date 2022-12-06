@@ -4,12 +4,10 @@ const CountryName = ({ filteredCountry, i, setSingleCountry }) => {
   };
 
   return (
-    <div>
-      <p key={i}>
-        {filteredCountry.name.common}{' '}
-        <button onClick={displaySingleCountry}>Click Me</button>
-      </p>
-    </div>
+    <li key={i} style={{ listStyle: 'none', marginBlock: '0.75rem' }}>
+      {filteredCountry.name.common}{' '}
+      <button onClick={displaySingleCountry}>Click Me</button>
+    </li>
   );
 };
 
