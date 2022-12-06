@@ -7,6 +7,7 @@ function App() {
   const [countries, setCountries] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [singleCountry, setSingleCountry] = useState(null);
+  const [filteredCountries, setfilteredCountries] = useState([]);
 
   useEffect(() => {
     if (countries.length === 0) {
@@ -16,6 +17,7 @@ function App() {
         )
         .then((data) => {
           setCountries(data);
+          setfilteredCountries(data);
         });
     }
   }, [countries]);
@@ -23,12 +25,17 @@ function App() {
   // reset singleCountry when searchTerm changes
   useEffect(() => {
     setSingleCountry(null);
-  }, [searchTerm]);
+    setfilteredCountries(
+      countries.filter((country) =>
+        country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    );
+  }, [countries, searchTerm]);
 
   // Filter on countries
-  const filteredCountries = countries.filter((country) =>
-    country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // const filteredCountries = countries.filter((country) =>
+  //   country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
+  // );
 
   const dataToDisplay = !searchTerm ? null : filteredCountries.length > 10 ? (
     'Too many results'
