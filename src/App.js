@@ -37,9 +37,11 @@ function App() {
       filteredCountries={filteredCountries}
       setfilteredCountries={setfilteredCountries}
     />
-  ) : (
+  ) : filteredCountries.length === 1 ? (
     // Narrowed down to a single country
     <Country singleCountry={filteredCountries[0]} />
+  ) : (
+    'No results'
   );
 
   return (
