@@ -1,14 +1,14 @@
-const Country = ({ filteredCountry }) => {
+const Country = ({ singleCountry }) => {
   return (
     <div>
-      <h1>{filteredCountry.name.common}</h1>
-      <p>capital {filteredCountry.capital[0]}</p>
-      <p>area {filteredCountry.area}</p>
+      <h1>{singleCountry.name.common}</h1>
+      <p>capital {singleCountry.capital[0]}</p>
+      <p>area {singleCountry.area}</p>
       <h2>languages:</h2>
-      {Object.values(filteredCountry.languages).map((language, index) => {
+      {Object.values(singleCountry.languages).map((language, index) => {
         return <li key={index}>{language}</li>;
       })}
-      <img src={filteredCountry.flags[0]} alt='' />
+      <img src={singleCountry.flags[0]} alt='' />
     </div>
   );
 };

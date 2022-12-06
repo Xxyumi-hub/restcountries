@@ -33,7 +33,7 @@ function App() {
   const dataToDisplay = !searchTerm ? null : filteredCountries.length > 10 ? (
     'Too many results'
   ) : singleCountry ? (
-    <Country filteredCountry={singleCountry} />
+    <Country singleCountry={singleCountry} />
   ) : (
     // Narrowed down to a single country
     <CountryNameList
