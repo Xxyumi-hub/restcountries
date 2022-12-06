@@ -41,9 +41,7 @@ function App() {
     />
   ) : (
     // Narrowed down to a single country
-    filteredCountries.map((filteredCountry, i) => (
-      <Country key={i} filteredCountry={filteredCountry} />
-    ))
+    <Country filteredCountry={filteredCountries[0]} />
   );
 
   return (
