@@ -1,3 +1,26 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 1rem;
+}
+
+p,
+ul {
+  margin-block: 1rem;
+}
+
+li {
+  list-style: none;
+}
+
+li + li {
+  margin-top: 0.5rem;
+}
+
 .App {
   text-align: center;
 }

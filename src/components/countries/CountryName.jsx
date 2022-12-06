@@ -4,7 +4,7 @@ const CountryName = ({ filteredCountry, setSingleCountry }) => {
   };
 
   return (
-    <li style={{ listStyle: 'none', marginBlock: '0.75rem' }}>
+    <li>
       {filteredCountry.name.common}{' '}
       <button onClick={displaySingleCountry}>Click Me</button>
     </li>
