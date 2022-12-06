@@ -32,20 +32,34 @@ function App() {
       )
     : singleCountry;
 
-  const countriesToDisplay = filteredCountries.map((filteredCountry, i) => {
-    if (filteredCountries.length > 1) {
-      return (
-        <CountryName
-          key={i}
-          filteredCountry={filteredCountry}
-          setSingleCountry={setSingleCountry}
-        />
-      );
-    } else {
-      // Narrowed down to a single country
-      return <Country key={i} filteredCountry={filteredCountry} />;
-    }
-  });
+  // const countriesToDisplay = filteredCountries.map((filteredCountry, i) => {
+  //   if (filteredCountries.length > 1) {
+  //     return (
+  //       <CountryName
+  //         key={i}
+  //         filteredCountry={filteredCountry}
+  //         setSingleCountry={setSingleCountry}
+  //       />
+  //     );
+  //   } else {
+  //     // Narrowed down to a single country
+  //     return <Country key={i} filteredCountry={filteredCountry} />;
+  //   }
+  // });
+
+  const countriesToDisplay =
+    filteredCountries.length > 1
+      ? filteredCountries.map((filteredCountry, i) => (
+          <CountryName
+            key={i}
+            filteredCountry={filteredCountry}
+            setSingleCountry={setSingleCountry}
+          />
+        ))
+      : // Narrowed down to a single country
+        filteredCountries.map((filteredCountry, i) => (
+          <Country key={i} filteredCountry={filteredCountry} />
+        ));
 
   return (
     <div>
