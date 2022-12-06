@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Country from './components/countries/Country';
 import CountryName from './components/countries/CountryName';
 import './App.css';
+import CountryNameList from './components/countries/CountryNameList';
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -47,22 +48,20 @@ function App() {
   //   }
   // });
 
-  const countriesToDisplay = !searchTerm
-    ? null
-    : filteredCountries.length > 10
-    ? 'Too many results'
-    : filteredCountries.length > 1
-    ? filteredCountries.map((filteredCountry, i) => (
-        <CountryName
-          key={i}
-          filteredCountry={filteredCountry}
-          setSingleCountry={setSingleCountry}
-        />
-      ))
-    : // Narrowed down to a single country
-      filteredCountries.map((filteredCountry, i) => (
-        <Country key={i} filteredCountry={filteredCountry} />
-      ));
+  const countriesToDisplay = !searchTerm ? null : filteredCountries.length >
+    10 ? (
+    'Too many results'
+  ) : filteredCountries.length > 1 ? (
+    <CountryNameList
+      filteredCountries={filteredCountries}
+      setSingleCountry={setSingleCountry}
+    />
+  ) : (
+    // Narrowed down to a single country
+    filteredCountries.map((filteredCountry, i) => (
+      <Country key={i} filteredCountry={filteredCountry} />
+    ))
+  );
 
   return (
     <div>
