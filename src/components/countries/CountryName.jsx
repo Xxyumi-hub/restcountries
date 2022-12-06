@@ -1,6 +1,6 @@
-const CountryName = ({ filteredCountry, setSingleCountry }) => {
+const CountryName = ({ filteredCountry, setfilteredCountries }) => {
   const displaySingleCountry = () => {
-    setSingleCountry(filteredCountry);
+    setfilteredCountries([filteredCountry]);
   };
 
   return (

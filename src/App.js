@@ -6,7 +6,6 @@ import './App.css';
 function App() {
   const [countries, setCountries] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [singleCountry, setSingleCountry] = useState(null);
   const [filteredCountries, setfilteredCountries] = useState([]);
 
   useEffect(() => {
@@ -22,9 +21,8 @@ function App() {
     }
   }, [countries]);
 
-  // reset singleCountry when searchTerm changes
+  // reset filteredCountries when searchTerm changes
   useEffect(() => {
-    setSingleCountry(null);
     setfilteredCountries(
       countries.filter((country) =>
         country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
@@ -32,21 +30,16 @@ function App() {
     );
   }, [countries, searchTerm]);
 
-  // Filter on countries
-  // const filteredCountries = countries.filter((country) =>
-  //   country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
-  // );
-
   const dataToDisplay = !searchTerm ? null : filteredCountries.length > 10 ? (
     'Too many results'
-  ) : singleCountry ? (
-    <Country singleCountry={singleCountry} />
-  ) : (
-    // Narrowed down to a single country
+  ) : filteredCountries.length > 1 ? (
     <CountryNameList
       filteredCountries={filteredCountries}
-      setSingleCountry={setSingleCountry}
+      setfilteredCountries={setfilteredCountries}
     />
+  ) : (
+    // Narrowed down to a single country
+    <Country singleCountry={filteredCountries[0]} />
   );
 
   return (

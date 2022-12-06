@@ -1,13 +1,13 @@
 import CountryName from './CountryName';
 
-const CountryNameList = ({ filteredCountries, setSingleCountry }) => {
+const CountryNameList = ({ filteredCountries, setfilteredCountries }) => {
   return (
     <ul>
       {filteredCountries.map((filteredCountry, i) => (
         <CountryName
           key={i}
           filteredCountry={filteredCountry}
-          setSingleCountry={setSingleCountry}
+          setfilteredCountries={setfilteredCountries}
         />
       ))}
     </ul>
