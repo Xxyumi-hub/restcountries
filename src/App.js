@@ -16,7 +16,6 @@ function App() {
           (response) => response.json() // Return data converted to JSON
         )
         .then((data) => {
-          // console.log("Data", data);
           setCountries(data);
         });
     }
@@ -28,8 +27,6 @@ function App() {
         country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
       )
     : singleCountry;
-
-  // console.log('filteredCountries:', filteredCountries);
 
   const testButton = () => {
     for (let i = 0; i < filteredCountries.length - 1; i++) {
@@ -51,8 +48,6 @@ function App() {
       return <Country i={i} filteredCountry={filteredCountry} />;
     }
   });
-
-  console.log({ singleCountry });
 
   return (
     <div>

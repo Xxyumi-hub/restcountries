@@ -1,8 +1,6 @@
 const CountryName = ({ filteredCountry, i, setSingleCountry }) => {
   const displaySingleCountry = () => {
-    console.log(filteredCountry);
     setSingleCountry((prevState) => [...prevState, filteredCountry]);
-    console.log('UPDATED');
   };
 
   return (
