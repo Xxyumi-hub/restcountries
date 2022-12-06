@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   const [countries, setCountries] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [singleCountry, setSingleCountry] = useState([]);
+  const [singleCountry, setSingleCountry] = useState(null);
 
   useEffect(() => {
     if (countries.length === 0) {
@@ -22,7 +22,7 @@ function App() {
 
   // reset singleCountry when searchTerm changes
   useEffect(() => {
-    setSingleCountry([]);
+    setSingleCountry(null);
   }, [searchTerm]);
 
   // Filter on countries
@@ -32,8 +32,8 @@ function App() {
 
   const dataToDisplay = !searchTerm ? null : filteredCountries.length > 10 ? (
     'Too many results'
-  ) : singleCountry.length ? (
-    <Country filteredCountry={singleCountry[0]} />
+  ) : singleCountry ? (
+    <Country filteredCountry={singleCountry} />
   ) : (
     // Narrowed down to a single country
     <CountryNameList
