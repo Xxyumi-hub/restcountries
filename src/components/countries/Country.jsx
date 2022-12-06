@@ -7,8 +7,8 @@ const Country = ({ filteredCountry, i }) => {
       <p>capital {filteredCountry.capital[0]}</p>
       <p>area {filteredCountry.area}</p>
       <h2>languages:</h2>
-      {Object.values(filteredCountry.languages).map((language) => {
-        return <li key={i}>{language}</li>;
+      {Object.values(filteredCountry.languages).map((language, index) => {
+        return <li key={index}>{language}</li>;
       })}
       <img src={filteredCountry.flags[0]} alt='' />
     </div>
