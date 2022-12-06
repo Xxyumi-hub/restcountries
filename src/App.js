@@ -67,14 +67,14 @@ function App() {
     <div>
       <label>find countries</label>
       <input onChange={(e) => setSearchTerm(e.target.value)}></input>
-      <ul>
+      <div>
         {countriesToDisplay}
         {/* {searchTerm.length === 0
           ? null
           : filteredCountries.length > 10
           ? 'Too many results'
           : countriesToDisplay} */}
-      </ul>
+      </div>
     </div>
   );
 }
