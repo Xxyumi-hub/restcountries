@@ -18,7 +18,7 @@ function App() {
           setCountries(data);
         });
     }
-  }, [countries, singleCountry]);
+  }, [countries]);
 
   // reset singleCountry when searchTerm changes
   useEffect(() => {
