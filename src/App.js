@@ -20,7 +20,7 @@ function App() {
     }
   }, [countries]);
 
-  // reset filteredCountries when searchTerm changes
+  // set filteredCountries on load and reset it when searchTerm changes
   useEffect(() => {
     setfilteredCountries(
       countries.filter((country) =>
@@ -42,8 +42,6 @@ function App() {
   ) : (
     'No results'
   );
-
-  console.log({ filteredCountries });
 
   return (
     <div>
