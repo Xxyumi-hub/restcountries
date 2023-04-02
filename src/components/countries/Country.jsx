@@ -1,4 +1,4 @@
-import React from 'react';
+import Weather from '../weather/Weather';
 
 const Country = ({ filteredCountry }) => {
   return (
@@ -11,6 +11,7 @@ const Country = ({ filteredCountry }) => {
         return <li key={index}>{language}</li>;
       })}
       <img src={filteredCountry.flags[0]} alt='' />
+      <Weather lat={filteredCountry.latlng[0]} long={filteredCountry.latlng[1]} capital={filteredCountry.capital[0]}/>
     </div>
   );
 };
